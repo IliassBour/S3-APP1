@@ -2,13 +2,17 @@ package ingredients;
 
 import ingredients.exceptions.IngredientException;
 
-public class IngredientInventaire {
-    private IngredientInventaire ingredientInventaire;
+public class IngredientInventaire extends Ingredient {
+    private Ingredient ingredient;
     private int quantite;
 
-    public IngredientInventaire(IngredientInventaire ingredientInventaire, int quantite) {
-        this.ingredientInventaire = ingredientInventaire;
+    public IngredientInventaire(String nom, String description, TypeIngredient typeIngredient, int quantite) {
+        this.ingredient = new IngredientFactory().creerIngredient(nom, description, typeIngredient);
         this.quantite = quantite;
+    }
+
+    public Ingredient getIngredient() {
+        return ingredient;
     }
 
     public int getQuantite() {
