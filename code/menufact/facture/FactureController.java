@@ -6,20 +6,35 @@ import menufact.plats.PlatChoisi;
 
 import java.util.Date;
 
+/**
+ * Le controlleur de la facture
+ * @author Iliass Bourabaa
+ * @version 1.0
+ */
 public class FactureController {
     private Facture facture;
     private FactureView factureView;
 
+    /**
+     * Constructeur avec en paramètre un objet Facture
+     */
     public FactureController(Facture facture, FactureView factureView) {
         this.facture = facture;
         this.factureView = factureView;
     }
 
+    /**
+     * Constructeur avec en paramètre la description de la facture
+     */
     public FactureController(String description, FactureView factureView) {
         this.facture = new Facture(description);
         this.factureView = factureView;
     }
 
+    /**
+     *
+     * @param client le client de la facture
+     */
     public void associerClient (Client client)
     {
         facture.associerClient(client);
@@ -42,7 +57,6 @@ public class FactureController {
         return facture.total();
     }
 
-
     /**
      * Permet de chager l'état de la facture à PAYEE
      */
@@ -50,6 +64,7 @@ public class FactureController {
     {
         facture.payer();
     }
+
     /**
      * Permet de chager l'état de la facture à FERMEE
      */
@@ -60,7 +75,6 @@ public class FactureController {
 
     /**
      * Permet de changer l'état de la facture à OUVERTE
-     * @throws FactureException en cas que la facture soit PAYEE
      */
     public void ouvrir() throws FactureException
     {
@@ -80,7 +94,6 @@ public class FactureController {
     /**
      *
      * @param p un plat choisi
-     * @throws FactureException Seulement si la facture est OUVERTE
      */
     public void ajoutePlat(PlatChoisi p) throws FactureException
     {
@@ -105,6 +118,9 @@ public class FactureController {
         return facture.genererFacture();
     }
 
+    /**
+     * Appele la vue de la facture pour afficher à l'écran la facture
+     */
     public void printFacture() {
         factureView.printFacture(this.genererFacture());
     }
