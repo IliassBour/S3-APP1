@@ -51,4 +51,12 @@ public class PlatAuMenu {
     public void setPrix(double prix) {
         this.prix = prix;
     }
+
+    public void setIngredientInventaire(ArrayList<IngredientInventaire> ingredient) {
+        this.ingredientInventaire = ingredient;
+    }
+
+    public ArrayList<IngredientInventaire> getIngredientInventaire() {
+        return ingredientInventaire;
+    }
 }
