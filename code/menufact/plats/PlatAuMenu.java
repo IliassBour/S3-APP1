@@ -53,10 +53,10 @@ public class PlatAuMenu {
     }
 
     public void setIngredientInventaire(ArrayList<IngredientInventaire> ingredient) {
-        this.ingredientInventaire = ingredient;
+        this.ingredients = ingredient;
     }
 
     public ArrayList<IngredientInventaire> getIngredientInventaire() {
-        return ingredientInventaire;
+        return ingredients;
     }
 }
