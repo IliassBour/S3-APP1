@@ -71,6 +71,8 @@ public class FactureController {
     public void fermer()
     {
         facture.fermer();
+        FactureNotification notif = new FactureNotification();
+        notif.NotifierCuisine(this.facture.getPlatchoisi());
     }
 
     /**

@@ -98,7 +98,6 @@ public class Facture {
     }
 
     /**
-     *
      * @return l'état de la facture
      */
     public FactureEtat getEtat()
@@ -106,8 +105,9 @@ public class Facture {
         return etat;
     }
 
+    public ArrayList<PlatChoisi> getPlatchoisi(){return this.platchoisi;}
+
     /**
-     *
      * @param description la description de la Facture
      */
     public Facture(String description) {

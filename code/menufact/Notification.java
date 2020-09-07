@@ -1,4 +1,8 @@
 package menufact;
 
-public class Notification {
+/**
+ * Interface d'une notification
+ */
+public interface Notification {
+    void Notifier();
 }
