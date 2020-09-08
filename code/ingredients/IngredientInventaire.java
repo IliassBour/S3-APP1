@@ -43,4 +43,9 @@ public class IngredientInventaire extends Ingredient {
         else
             this.quantite = quantite;
     }
+
+    @Override
+    public String toString() {
+        return ingredient.getNom() + "/" + ingredient.getTypeIngredient() + "/" + this.getQuantite();
+    }
 }

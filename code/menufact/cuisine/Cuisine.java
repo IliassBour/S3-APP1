@@ -30,6 +30,7 @@ public class Cuisine {
             Cuisine.instanceCuisine.setInventaire(inventaireInitial);
             return Cuisine.instanceCuisine;
         }
+        Cuisine.instanceCuisine.setInventaire(inventaireInitial);
         return Cuisine.instanceCuisine;
     }
 
@@ -66,9 +67,12 @@ public class Cuisine {
      * @exception "InventaireException" Lorsqu'il manque d'un ingrédient dans l'inventaire ou lorsque celui-ci n'est pas présent dans l'inventaire
      */
     public void enleverIngredients(ArrayList<IngredientInventaire> ingredientsUtilises) throws InventaireException {
+        boolean exists = false;
         for (IngredientInventaire ingredient : ingredientsUtilises) {
+            exists = false;
             for(IngredientInventaire ingredientInv : this.inventaire){
-                if(ingredient.getIngredient().getNom().equals(ingredientInv.getIngredient().getNom())){
+                if(ingredient.getIngredient().getTypeIngredient().equals(ingredientInv.getIngredient().getTypeIngredient()) && ingredient.getIngredient().getNom().equals(ingredientInv.getIngredient().getNom())){
+                    exists = true;
                     if(ingredient.getQuantite() > ingredientInv.getQuantite()){
                         throw new InventaireException("Il n'y a pas assez d'ingrédients pour faire ce plat");
                     }
@@ -76,12 +80,25 @@ public class Cuisine {
                         ingredientInv.setQuantite(ingredientInv.getQuantite()-ingredient.getQuantite());
                     }
                     catch (IngredientException ingE){
-                        System.out.println(ingE.getMessage());
+                        System.err.println(ingE.getMessage());
                     }
                     break;
                 }
-                throw new InventaireException("Cet ingrédient n'existe pas dans l'inventaire");
             }
+            if(!exists){ throw new InventaireException("Un ingrédient n'existe pas dans l'inventaire"); }
         }
+    }
+
+    @Override
+    public String toString() {
+        String msg = "InventaireCuisine: ";
+        int i = 0;
+        for (IngredientInventaire ingredient: this.inventaire)
+        {
+            if(i != 0){ msg = msg + " - "; }
+            msg = msg + ingredient.getIngredient().getNom() + "/" + ingredient.getIngredient().getTypeIngredient() + "/" + ingredient.getQuantite();
+            i++;
+        }
+        return msg;
     }
 }

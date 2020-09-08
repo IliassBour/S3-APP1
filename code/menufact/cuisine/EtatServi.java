@@ -19,7 +19,6 @@ public class EtatServi implements CommandeEtat{
      */
     @Override
     public CommandeEtat prochainEtat(ArrayList<PlatChoisi> platsChoisi) {
-        System.out.println(this.toString());
         return this;
     }
 

@@ -33,6 +33,8 @@ public class Commande {
      */
     public CommandeEtat getEtat(){return this.etat;}
 
+    public ArrayList<PlatChoisi> getPlatsChoisi(){return this.platsChoisi;}
+
     /**
      * Change l'état de la commande
      */
@@ -40,7 +42,6 @@ public class Commande {
         do{
             this.etat = this.getEtat().prochainEtat(platsChoisi);
         }while(this.getEtat().toString() != "Servi" && this.getEtat().toString() != "Erreur");
-        System.out.println(this.getEtat().toString());
     };
 
 }

@@ -19,7 +19,6 @@ public class EtatEnPreparation implements CommandeEtat{
      */
     @Override
     public CommandeEtat prochainEtat(ArrayList<PlatChoisi> platsChoisi) {
-        System.out.println(this.toString());
         return new EtatTerminer();
     }
 

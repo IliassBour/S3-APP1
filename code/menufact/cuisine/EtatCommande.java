@@ -21,7 +21,6 @@ public class EtatCommande implements CommandeEtat{
      */
     @Override
     public CommandeEtat prochainEtat(ArrayList<PlatChoisi> platsChoisi) {
-        System.out.println(this.toString());
         Cuisine cuisine = Cuisine.getInstance();
 
         try{
@@ -30,7 +29,7 @@ public class EtatCommande implements CommandeEtat{
             }
         }
         catch(InventaireException invE){
-            System.out.println(invE.getMessage());
+            System.err.println(invE.getMessage());
             return new EtatErreur();
         }
 
