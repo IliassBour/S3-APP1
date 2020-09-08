@@ -26,7 +26,7 @@ public class EtatCommande implements CommandeEtat{
 
         try{
             for(PlatChoisi plat : platsChoisi){
-                cuisine.enleverIngredients(plat);
+                cuisine.enleverIngredients(plat.getPlat().getIngredientInventaire());
             }
         }
         catch(InventaireException invE){
