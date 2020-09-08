@@ -17,9 +17,7 @@ public class Cuisine {
     /**
      * Constructeur privé du singleton 'Cuisine'
      */
-    private Cuisine(){
-        this.inventaire = null;
-    }
+    private Cuisine(){ this.inventaire = null; }
 
     /**
      * Constructeur public de 'Cuisine'. Permet d'indiquer une quantité initiale de chaque 'Ingredient'
@@ -70,7 +68,7 @@ public class Cuisine {
     public void enleverIngredients(ArrayList<IngredientInventaire> ingredientsUtilises) throws InventaireException {
         for (IngredientInventaire ingredient : ingredientsUtilises) {
             for(IngredientInventaire ingredientInv : this.inventaire){
-                if(ingredient.getNom() == ingredientInv.getNom()){
+                if(ingredient.getIngredient().getNom().equals(ingredientInv.getIngredient().getNom())){
                     if(ingredient.getQuantite() > ingredientInv.getQuantite()){
                         throw new InventaireException("Il n'y a pas assez d'ingrédients pour faire ce plat");
                     }

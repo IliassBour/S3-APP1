@@ -11,22 +11,13 @@ import java.util.ArrayList;
  * @author Pedro Scoccimarro
  * @version 1.0
  */
-public class FactureNotification implements Notification {
+public class FactureNotification implements Notification<PlatChoisi> {
 
     /**
      * Crée une nouvelle commande
      */
     @Override
-    public void Notifier(){
-        Commande commande = new Commande();
-        commande.PoursuivreCommande();
-    }
-
-    /**
-     * Notifie la cuisine avec le plat commandé
-     * @param platsCommande
-     */
-    public void NotifierCuisine(ArrayList<PlatChoisi> platsCommande){
+    public void Notifier(ArrayList<PlatChoisi> platsCommande){
         Commande commande = new Commande(platsCommande);
         commande.PoursuivreCommande();
     }

@@ -1,9 +1,6 @@
 package menufact.cuisine;
 
-import menufact.Notification;
 import menufact.plats.PlatChoisi;
-import menufact.cuisine.EtatCommande;
-
 import java.util.ArrayList;
 
 /**
@@ -12,7 +9,6 @@ import java.util.ArrayList;
  * @version 1.0
  */
 public class Commande {
-    private ArrayList<Notification> notifications;
     private CommandeEtat etat;
     private ArrayList<PlatChoisi> platsChoisi;
 

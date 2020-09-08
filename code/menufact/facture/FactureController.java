@@ -1,9 +1,11 @@
 package menufact.facture;
 
 import menufact.Client;
+import menufact.Notification;
 import menufact.facture.exceptions.FactureException;
 import menufact.plats.PlatChoisi;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -14,6 +16,7 @@ import java.util.Date;
 public class FactureController {
     private Facture facture;
     private FactureView factureView;
+    private ArrayList<Notification> notifications;
 
     /**
      * Constructeur avec en paramètre un objet Facture
@@ -21,6 +24,8 @@ public class FactureController {
     public FactureController(Facture facture, FactureView factureView) {
         this.facture = facture;
         this.factureView = factureView;
+        this.notifications = new ArrayList<Notification>();
+        this.notifications.add(new FactureNotification());
     }
 
     /**
@@ -29,6 +34,7 @@ public class FactureController {
     public FactureController(String description, FactureView factureView) {
         this.facture = new Facture(description);
         this.factureView = factureView;
+        this.notifications.add(new FactureNotification());
     }
 
     /**
@@ -71,8 +77,10 @@ public class FactureController {
     public void fermer()
     {
         facture.fermer();
-        FactureNotification notif = new FactureNotification();
-        notif.NotifierCuisine(this.facture.getPlatchoisi());
+
+        for(Notification notif : this.notifications){
+            notif.Notifier(this.facture.getPlatchoisi());
+        }
     }
 
     /**
