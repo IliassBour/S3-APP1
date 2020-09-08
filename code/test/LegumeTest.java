@@ -10,7 +10,7 @@ public class LegumeTest {
         Legume legume = new Legume("nom", "description");
 
         if(legume.getClass() != Legume.class || legume.getNom() != "nom"
-                || legume.getDescription() != "description" || legume.getTypeIngredient() != TypeIngredient.EPICE) {
+                || legume.getDescription() != "description" || legume.getTypeIngredient() != TypeIngredient.LEGUME) {
             throw new IngredientException("Erreur dans la création d'un objet Epice");
         }
     }
