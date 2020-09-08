@@ -34,6 +34,7 @@ public class FactureController {
     public FactureController(String description) {
         this.facture = new Facture(description);
         this.factureView =  new FactureView();
+        this.notifications = new ArrayList<Notification>();
         this.notifications.add(new FactureNotification());
     }
 
