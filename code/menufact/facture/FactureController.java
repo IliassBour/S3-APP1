@@ -136,6 +136,6 @@ public class FactureController {
      * Appele la vue de la facture pour afficher à l'écran la facture
      */
     public void printFacture() {
-        factureView.printFacture(this.genererFacture());
+        factureView.printFacture(facture.genererFacture());
     }
 }

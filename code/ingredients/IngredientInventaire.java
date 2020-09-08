@@ -46,6 +46,6 @@ public class IngredientInventaire extends Ingredient {
 
     @Override
     public String toString() {
-        return ingredient.getNom() + "/" + ingredient.getTypeIngredient() + "/" + this.getQuantite();
+        return "ingredient.IngredientInventaire{"+ ingredient.getNom() + "/" + ingredient.getTypeIngredient() + "/" + this.getQuantite() + "}";
     }
 }

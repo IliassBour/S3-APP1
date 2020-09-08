@@ -21,11 +21,17 @@ public class PlatAuMenu {
 
     @Override
     public String toString() {
-        return "menufact.plats.PlatAuMenu{" +
+        String message = "menufact.plats.PlatAuMenu{" +
                 "code=" + code +
                 ", description='" + description + '\'' +
                 ", prix=" + prix +
-                "}\n";
+                ", ingredient=";
+        for(IngredientInventaire ingredient : ingredients) {
+            message += ingredient.toString() + " "  ;
+        }
+        message += "\b}\n";
+        return message;
+
     }
 
     public int getCode() {
