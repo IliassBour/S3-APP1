@@ -71,14 +71,14 @@ public class Facture {
     }
 
     /**
-     * Permet de chager l'état de la facture à PAYEE
+     * Permet de changer l'état de la facture à PAYEE
      */
     public void payer()
     {
        etat = FactureEtat.PAYEE;
     }
     /**
-     * Permet de chager l'état de la facture à FERMEE
+     * Permet de changer l'état de la facture à FERMEE
      */
     public void fermer()
     {
@@ -105,6 +105,10 @@ public class Facture {
         return etat;
     }
 
+    /**
+     *
+     * @return l'ArrayList des plats choisis dans la facture
+     */
     public ArrayList<PlatChoisi> getPlatchoisi(){return this.platchoisi;}
 
     /**

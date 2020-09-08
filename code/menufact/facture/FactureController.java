@@ -21,9 +21,9 @@ public class FactureController {
     /**
      * Constructeur avec en paramètre un objet Facture
      */
-    public FactureController(Facture facture, FactureView factureView) {
+    public FactureController(Facture facture) {
         this.facture = facture;
-        this.factureView = factureView;
+        this.factureView = new FactureView();
         this.notifications = new ArrayList<Notification>();
         this.notifications.add(new FactureNotification());
     }
@@ -31,9 +31,9 @@ public class FactureController {
     /**
      * Constructeur avec en paramètre la description de la facture
      */
-    public FactureController(String description, FactureView factureView) {
+    public FactureController(String description) {
         this.facture = new Facture(description);
-        this.factureView = factureView;
+        this.factureView =  new FactureView();
         this.notifications.add(new FactureNotification());
     }
 
@@ -64,15 +64,18 @@ public class FactureController {
     }
 
     /**
-     * Permet de chager l'état de la facture à PAYEE
+     * Permet de changer l'état de la facture à PAYEE
      */
-    public void payer()
-    {
-        facture.payer();
+    public void payer() throws FactureException {
+        if(facture.getEtat() == FactureEtat.FERMEE) {
+            facture.payer();
+        } else {
+            throw new FactureException("Il faut que la facture soit fermée avant de la payer");
+        }
     }
 
     /**
-     * Permet de chager l'état de la facture à FERMEE
+     * Permet de changer l'état de la facture à FERMEE
      */
     public void fermer()
     {
