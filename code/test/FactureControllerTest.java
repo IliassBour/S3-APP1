@@ -208,7 +208,14 @@ System.out.println(factureController.toString());
     @Test
     public void ajoutePlat() throws FactureException {
         FactureController factureController = new FactureController("description");
+
+        ArrayList<IngredientInventaire> array = new ArrayList<>();
+        IngredientInventaire ingredient = new IngredientInventaire("nom", "description1", TypeIngredient.EPICE, 10);
+        array.add(ingredient);
+
         PlatAuMenu platAuMenu1 = new PlatAuMenu(1,"spaghetti",12);
+        platAuMenu1.setIngredientInventaire(array);
+        
         PlatChoisi platChoisi1 = new PlatChoisi(platAuMenu1,2);
 
         factureController.ajoutePlat(platChoisi1);
